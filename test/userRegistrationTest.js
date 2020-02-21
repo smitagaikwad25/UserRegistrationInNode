@@ -53,5 +53,17 @@ describe('Test Case to validate mail id', () => {
         var mailId = userRegistration.analyseEmailId('smita.shinde123@gmail.com.in')
         assert.isTrue(mailId)
     })
+    
+    it('given mail id when not in proper format should return false', () => {
+        var mailId = userRegistration.analyseEmailId('122.shinde123@.gmail.com.in')
+        assert.isFalse(mailId)
+    })
+
+    it('given mail id when not in proper format should return false', () => {
+        var mailId = userRegistration.analyseEmailId('122.shinde123@..com.in')
+        assert.isFalse(mailId)
+    })
+
+
 })
 
