@@ -12,5 +12,10 @@ module.exports = {
     analyseEmailId(mailId) {
         var pattern = /^[a-zA-Z]{1,}([.]{1})?[0-9a-zA-Z]*[@]{1}[a-zA-Z0-9]{1,}[.]{1}[a-zA-Z]{2,4}([.]{1})?([a-zA-Z]{2,3})?$/;
         return pattern.test(mailId)
+    },
+
+    analyseMobileNumber(mobileNumber){
+        var pattern =/^[0-9]{2}[ ][0-9]{10}/
+        return pattern.test(mobileNumber)
     }
 }

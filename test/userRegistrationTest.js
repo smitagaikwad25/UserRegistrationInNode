@@ -53,7 +53,7 @@ describe('Test Case to validate mail id', () => {
         var mailId = userRegistration.analyseEmailId('smita.shinde123@gmail.com.in')
         assert.isTrue(mailId)
     })
-    
+
     it('given mail id when not in proper format should return false', () => {
         var mailId = userRegistration.analyseEmailId('122.shinde123@.gmail.com.in')
         assert.isFalse(mailId)
@@ -63,7 +63,34 @@ describe('Test Case to validate mail id', () => {
         var mailId = userRegistration.analyseEmailId('122.shinde123@..com.in')
         assert.isFalse(mailId)
     })
+})
 
+describe('Test case to validate mobile number', () => {
+    
+    it('given mobile number when in proper format should return true',() =>{
+        var mobileNumber =userRegistration.analyseMobileNumber('91 9999999999')
+        assert.isTrue(mobileNumber)
+    })
+
+    it('given mobile number when not start with country code should return false',() =>{
+        var mobileNumber =userRegistration.analyseMobileNumber('9999999999')
+        assert.isFalse(mobileNumber)
+    })
+
+    it('given mobile number when start with string should return false',() =>{
+        var mobileNumber =userRegistration.analyseMobileNumber('ab 9999999999')
+        assert.isFalse(mobileNumber)
+    })
+
+    it('given mobile number when end with string should return false',() =>{
+        var mobileNumber =userRegistration.analyseMobileNumber('91 9999999ab')
+        assert.isFalse(mobileNumber)
+    })
+
+    it('given mobile number when not in Proper return false',() =>{
+        var mobileNumber =userRegistration.analyseMobileNumber('9999gbhd6576')
+        assert.isFalse(mobileNumber)
+    })
 
 })
 
