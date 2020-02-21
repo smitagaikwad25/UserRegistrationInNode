@@ -1,7 +1,7 @@
 var assert = require('chai').assert
 var userRegistration = require('../main/userRegistration')
 
-describe('Test Case For validation of name', () =>{
+describe('Test Case For validation of first name', () =>{
 
     it('given first name when in proper format should return true',() =>{
         var name = userRegistration.analyseName('Smita')
