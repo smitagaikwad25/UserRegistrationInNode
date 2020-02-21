@@ -17,5 +17,11 @@ module.exports = {
     analyseMobileNumber(mobileNumber){
         var pattern =/^[0-9]{2}[ ][0-9]{10}/
         return pattern.test(mobileNumber)
+    },
+
+    analysePassword(password){
+        var pattern =/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[#$^+=!*()@%&]).{8,}$/
+        return pattern.test(password)
     }
+    
 }

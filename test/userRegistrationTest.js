@@ -66,31 +66,64 @@ describe('Test Case to validate mail id', () => {
 })
 
 describe('Test case to validate mobile number', () => {
-    
-    it('given mobile number when in proper format should return true',() =>{
-        var mobileNumber =userRegistration.analyseMobileNumber('91 9999999999')
+
+    it('given mobile number when in proper format should return true', () => {
+        var mobileNumber = userRegistration.analyseMobileNumber('91 9999999999')
         assert.isTrue(mobileNumber)
     })
 
-    it('given mobile number when not start with country code should return false',() =>{
-        var mobileNumber =userRegistration.analyseMobileNumber('9999999999')
+    it('given mobile number when not start with country code should return false', () => {
+        var mobileNumber = userRegistration.analyseMobileNumber('9999999999')
         assert.isFalse(mobileNumber)
     })
 
-    it('given mobile number when start with string should return false',() =>{
-        var mobileNumber =userRegistration.analyseMobileNumber('ab 9999999999')
+    it('given mobile number when start with string should return false', () => {
+        var mobileNumber = userRegistration.analyseMobileNumber('ab 9999999999')
         assert.isFalse(mobileNumber)
     })
 
-    it('given mobile number when end with string should return false',() =>{
-        var mobileNumber =userRegistration.analyseMobileNumber('91 9999999ab')
+    it('given mobile number when end with string should return false', () => {
+        var mobileNumber = userRegistration.analyseMobileNumber('91 9999999ab')
         assert.isFalse(mobileNumber)
     })
 
-    it('given mobile number when not in Proper return false',() =>{
-        var mobileNumber =userRegistration.analyseMobileNumber('9999gbhd6576')
+    it('given mobile number when not in Proper return false', () => {
+        var mobileNumber = userRegistration.analyseMobileNumber('9999gbhd6576')
         assert.isFalse(mobileNumber)
     })
 
+})
+
+describe('test case to validate password', () => {
+    
+    it('given password when in proper format should return true', () => {
+        var password = userRegistration.analysePassword('Aaaaa1@aa')
+        assert.isTrue(password)
+    })
+
+    it('given password when not in format should return false', () => {
+        var password = userRegistration.analysePassword('Aaaaa')
+        assert.isFalse(password)
+    })
+
+    it('given password when does not contain special character should return false', () => {
+        var password = userRegistration.analysePassword('Aaaaa1aaa')
+        assert.isFalse(password)
+    })
+
+    it('given password when does not contain mimum one number should return false', () => {
+        var password = userRegistration.analysePassword('Aaaaa@aaa')
+        assert.isFalse(password)
+    })
+
+    it('given password when does not contain mimum one upper case litter should return false', () => {
+        var password = userRegistration.analysePassword('aaaaa@aaa')
+        assert.isFalse(password)
+    })
+
+    it('given password when does not contain mimum one lower case litter should return false', () => {
+        var password = userRegistration.analysePassword('AAAAAAAA@1')
+        assert.isFalse(password)
+    })
 })
 
